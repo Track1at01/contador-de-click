@@ -1,18 +1,21 @@
+import React, { useState } from 'react';
 import './App.css';
 import Boton from './componentes/boton';
 import Contador from './componentes/Contador';
-import logo from './imagenes/intentologo.png'
+import logo from './imagenes/intentologo.png';
 
 
 function App() {
 
+  const [numClics, setNumClics] = useState(0);
+
     const manejarClic = () => {
-console.log("clic")
-    }
+      setNumClics(numClics + 1);
+    };
 
     const reiniciarContador = () => {
-      console.log ("reiniciar")
-    }
+      setNumClics(0);
+    };
 
   return (
     <div className="App">
@@ -24,7 +27,7 @@ console.log("clic")
         />
       </div>
       <div className='contenedor-principal'>
-        <Contador numClics={5}/>
+        <Contador numClics={numClics}/>
         <Boton 
          texto = "clic"
          esBotonDeClic = {true}
